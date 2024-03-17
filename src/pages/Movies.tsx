@@ -2,8 +2,10 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './Movies.css';
+import { useApi } from '../hooks/useApi'
 
 const Movies: React.FC = () => {
+  useApi();
   return (
     <IonPage>
       <IonHeader>
@@ -21,7 +23,8 @@ const Movies: React.FC = () => {
             <IonTitle size="large">Movies</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Movies" />
+        
+
       </IonContent>
     </IonPage>
   );
