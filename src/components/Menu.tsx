@@ -29,7 +29,7 @@ const appPages: AppPage[] = [
     mdIcon: homeSharp
   },
   {
-    title: 'Schedule',
+    title: 'Today',
     url: '/schedule',
     iosIcon: calendarNumberOutline,
     mdIcon: calendarNumberSharp
