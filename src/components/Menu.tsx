@@ -1,4 +1,5 @@
 import {
+  IonButton,
   IonContent,
   IonIcon,
   IonItem,
@@ -9,8 +10,8 @@ import {
   IonMenuToggle,
   IonNote,
 } from '@ionic/react';
-
-import { useLocation } from 'react-router-dom';
+import { signUserOut } from '../firebaseCfg'
+import { useLocation, useHistory } from 'react-router-dom';
 import { calendarNumberOutline, calendarNumberSharp, videocamOutline, videocamSharp, homeOutline, homeSharp } from 'ionicons/icons';
 import './Menu.css';
 
@@ -25,6 +26,18 @@ const appPages: AppPage[] = [
   {
     title: 'Home',
     url: '/home',
+    iosIcon: homeOutline,
+    mdIcon: homeSharp
+  },
+  {
+    title: 'Login',
+    url: '/login',
+    iosIcon: homeOutline,
+    mdIcon: homeSharp
+  },
+  {
+    title: 'Register',
+    url: '/register',
     iosIcon: homeOutline,
     mdIcon: homeSharp
   },
@@ -44,6 +57,11 @@ const appPages: AppPage[] = [
 
 const Menu: React.FC = () => {
   const location = useLocation();
+  const history = useHistory();
+  async function signOut(){
+    await signUserOut();
+    window.location.reload();
+  }
 
   return (
     <IonMenu contentId="main" type="overlay">
@@ -60,6 +78,9 @@ const Menu: React.FC = () => {
               </IonMenuToggle>
             );
           })}
+          <IonItem>
+            <IonButton onClick={signOut}>Sign out</IonButton>
+          </IonItem>
         </IonList>
       </IonContent>
     </IonMenu>
