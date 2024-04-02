@@ -34,14 +34,17 @@ setupIonicReact();
 const App: React.FC = () => {
   
   const [ userLogged, setLogged ] = useState(false);
-
   useEffect(() => {
     getCurrentUser().then(user => {
       if(user){
         console.log("User logged");
         setLogged(true);
       }
-      console.log("User not logged");
+      else{
+        console.log("User not logged");
+        setLogged(false);
+      }
+      
     })
   }, []);
 

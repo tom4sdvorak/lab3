@@ -31,7 +31,7 @@ const Register: React.FC = () => {
       setIsOpen(true)
     }
     else{
-      setToast("Account already exists!")
+      setToast("Something went wrong")
       setIsOpen(true)
     }
 
